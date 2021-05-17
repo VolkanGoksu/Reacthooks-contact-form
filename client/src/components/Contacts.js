@@ -1,6 +1,9 @@
 import React from 'react'
 import ContactForm from './ContactForm'
 export default function Contacts() {
+    const dataSave=(nesne)=>{
+             console.log(nesne);
+    }
     return (
         <div>
             <div className ="jumbotron">
@@ -12,7 +15,7 @@ export default function Contacts() {
             </div>
             <div className='row'>
                 <div className="col-md-5">
-                    <ContactForm />
+                    <ContactForm props={dataSave} />
                 </div>
                 <div className = "col-md-7">
                     Iletişim Bilgileri Listesi

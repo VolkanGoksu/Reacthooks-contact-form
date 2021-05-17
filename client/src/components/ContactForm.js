@@ -1,7 +1,7 @@
 
 import React,{useState} from 'react'
 
-export default function ContactForm() { 
+export default function ContactForm(props) { 
     const formFields = { 
         name:'',
         surname:'',
@@ -19,7 +19,8 @@ export default function ContactForm() {
     }
     const dataSave=(e)=>{
          e.preventDefault();
-        console.log(fields);
+       // console.log(fields);
+       props.props(fields)
     }
   
     return (
