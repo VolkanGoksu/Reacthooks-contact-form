@@ -12,7 +12,7 @@ export default function Contacts() {
           setContactsData({
               ...snapshot.val()
           })
-          console.log(contactsData);
+         // console.log(contactsData);
       }
     })
    },[])
@@ -40,7 +40,35 @@ export default function Contacts() {
                     <ContactForm props={dataSave} />
                 </div>
                 <div className = "col-md-7">
-                    Iletişim Bilgileri Listesi
+                    <table className="table table-borderless table-stripped">
+                        <thead className="thead-light">
+                             <tr>
+                                 <th>Name & Surname</th>
+                                 <th>Mail</th>
+                                 <th>Telefon</th>
+                                 <th>işlem</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                                 {Object.keys(contactsData).map(id=>{
+                                     return (
+                                         <tr key={id}>
+                                             <td>{contactsData[id].isim}{contactsData[id].surname}</td>
+                                             <td>{contactsData[id].mail}</td>
+                                             <td>{contactsData.[id].number}</td>
+                                             <td>
+                                                 <a className="btn text-primary">
+                                                     <i className="fas fa-pencil-alt trash"></i>
+                                                 </a>
+                                                 <a className="btn text-primary">
+                                                     <i className="fas fa-trash"></i>
+                                                 </a>
+                                             </td>
+                                         </tr>
+                                     )
+                                 })}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
