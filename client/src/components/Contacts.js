@@ -1,8 +1,16 @@
 import React from 'react'
 import ContactForm from './ContactForm'
+import firebase from '../firebase'
 export default function Contacts() {
     const dataSave=(nesne)=>{
-             console.log(nesne);
+            // console.log(nesne);
+            firebase.child('Contact info').push(
+                nesne,
+                err =>{
+                    console.log(err);
+                }
+            )
+
     }
     return (
         <div>

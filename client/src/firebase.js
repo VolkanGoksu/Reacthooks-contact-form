@@ -1,5 +1,5 @@
 
-import * as firebase from 'firebase'
+import firebase from 'firebase'
 var firebaseConfig = {
     apiKey: "AIzaSyDzq0_jdHYTnseAMV80L1kJhGFFDlkCXog",
     authDomain: "react-contact-cc22b.firebaseapp.com",
@@ -10,4 +10,6 @@ var firebaseConfig = {
     appId: "1:799311948479:web:f0557cdb9941511a71340a"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  var db = firebase.initializeApp(firebaseConfig);
+
+  export default db.database().ref()
