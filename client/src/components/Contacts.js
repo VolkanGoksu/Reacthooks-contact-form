@@ -1,7 +1,21 @@
-import React from 'react'
+import React ,{useState,useEffect}from 'react'
 import ContactForm from './ContactForm'
 import firebase from '../firebase'
+
+
 export default function Contacts() {
+   const [contactsData, setContactsData] = useState({})
+
+   useEffect(()=>{
+       firebase.child('Contact info').on('value',snapshot=>{
+      if(snapshot.val()!=null){
+          setContactsData({
+              ...snapshot.val()
+          })
+          console.log(contactsData);
+      }
+    })
+   },[])
     const dataSave=(nesne)=>{
             // console.log(nesne);
             firebase.child('Contact info').push(
